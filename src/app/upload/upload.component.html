@@ -1,4 +1,5 @@
 <div class="container">
+    <!-- Navbar -->
     <app-navbar></app-navbar>
 
     <div class="content">
@@ -12,8 +13,10 @@
 
         </div>
 
+        <!-- hero จะเเบ่งเป็น 2 section ซ้ายเเละขวา -->
         <div class="hero">
 
+            <!--section1 คือ  section ที่อยู่ซ้ายมือ จะมี box สำหรับอัพโหลดไฟล์ และbox สำหรับพิมข้อความ -->
             <div class="section1">
                 <div class="left-s1">
                     <div class="top-step">
@@ -57,7 +60,7 @@
                     </div>
 
 
-                    <!--  -->
+                  
                 </div>
 
                 <div class="left-s2">
@@ -66,10 +69,11 @@
                         <h4 style="color: #A9A9A9;"> Edit</h4>
 
                     </div>
+
+                    <!-- สำหรับพิมพ์ข้อความหรือพูดของ user  -->
                     <div class="box">
                         <div class="text">
-                            <!-- <p>Sent a Message... </p> -->
-                            <!-- <input type="text" placeholder="Sent a Message..." class="message-input" /> -->
+                            
 
                             <textarea id="chatInput" rows="4" cols="50" placeholder="Sent a Message..."></textarea>
 
@@ -88,6 +92,7 @@
                 </div>
             </div>
 
+            <!-- section2 คือ  section ที่อยู่ขวามือสำหรับเเสดงข้อความที่อยู่ userพิม เเละ resoone ของ ai -->
             <div class="section2">
 
                 <div class="top-step">
@@ -95,6 +100,7 @@
                     <h4 style="color: #A9A9A9;"> Regenerate</h4>
 
                 </div>
+
                 <div class="inbox">
                     <img *ngIf="isLogoVisible" src="../../assets/img/logo.png" alt="" style="opacity: 0.5;">
                     <div class="chat" *ngIf="isChatVisible">
@@ -115,7 +121,7 @@
                                 <img src="../../assets/img/user1.png" alt="" height="30px">
                             </div>
 
-                            <!-- <div> -->
+                            
                             <!-- สำหรับข้อความของ AI -->
                             <div *ngIf="chat.user === 'Ai'" class="chat-box-ai">
                                 <img src="../../assets/img/ri_voice-ai-line.png" alt="" height="30px">
@@ -164,7 +170,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- </div> -->
+                          \
                         </div>
 
                     </div>

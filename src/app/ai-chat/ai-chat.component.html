@@ -11,25 +11,21 @@
 
 
         </div>
-
+ <!-- hero จะเเบ่งเป็น 2 section ซ้ายเเละขวา -->
         <div class="hero">
 
+            <!--section1 คือ  section ที่อยู่ซ้ายมือ จะมี box สำหรับพิมข้อความ -->
             <div class="section1">
-
-            
-
-                <!--  -->
 
                 <div class="top-step">
                     <h4 style="color: white;">Step 2 : Sent a Message</h4>
                     <h4 style="color: #A9A9A9;"> Edit</h4>
 
                 </div>
+                 <!-- สำหรับพิมพ์ข้อความหรือพูดของ user  -->
                 <div class="box">
                     <div class="text">
-                        <!-- <p>Sent a Message... </p> -->
-                        <!-- <input type="text" placeholder="Sent a Message..." class="message-input" /> -->
-
+                        
                         <textarea id="chatInput" rows="4" cols="50" placeholder="Sent a Message..."></textarea>
 
                     </div>
@@ -46,6 +42,7 @@
 
             </div>
 
+            <!-- section2 คือ  section ที่อยู่ขวามือสำหรับเเสดงข้อความที่อยู่ userพิม เเละ resoone ของ ai -->
             <div class="section2">
 
                 <div class="top-step">
@@ -53,38 +50,79 @@
                     <h4 style="color: #A9A9A9;"> Regenerate</h4>
 
                 </div>
-                <div class="inbox">
+
+                 <div class="inbox">
                     <img *ngIf="isLogoVisible" src="../../assets/img/logo.png" alt="" style="opacity: 0.5;">
                     <div class="chat" *ngIf="isChatVisible">
-                        <div *ngFor="let chat of chatMessages" class="chat-box"
-                            [ngClass]="{'chat-box-ai': chat.user === 'Ai'}">
+                        <div *ngFor="let chat of chatMessages">
                             <!-- สำหรับข้อความของผู้ใช้ -->
-                            <ng-container *ngIf="chat.user === 'You'">
+                            <div *ngIf="chat.user === 'You'" class="chat-box">
                                 <div class="user-me">
-                                    <div class="top-me">
-                                        <h4>{{ chat.user }}</h4>
-                                    </div>
-                                    <div class="box-message">
-                                        <p>{{ chat.message }}</p>
+                                    <div class="user-dev">
+                                        <div class="top-me">
+                                            <h4>{{ chat.user }}</h4>
+                                        </div>
+                                        <div class="box-message" [ngClass]="getMessageClass(chat.message)">
+                                            <p>{{ chat.message }}</p>
+                                        </div>
+
                                     </div>
                                 </div>
                                 <img src="../../assets/img/user1.png" alt="" height="30px">
-                            </ng-container>
+                            </div>
 
+                            
                             <!-- สำหรับข้อความของ AI -->
-                            <ng-container *ngIf="chat.user === 'Ai'">
+                            <div *ngIf="chat.user === 'Ai'" class="chat-box-ai">
                                 <img src="../../assets/img/ri_voice-ai-line.png" alt="" height="30px">
                                 <div class="user-ai">
                                     <div class="top-ai">
                                         <h4>{{ chat.user }}</h4>
                                     </div>
-                                    <div class="box-message-ai">
-
+                                    <div class="box-message-ai" [ngClass]="getMessageClassAI(chat.message)">
                                         <p>{{ chat.message }}</p>
+                                        
+                                        <div class="file-all">
+                                            <div class="img-flie">
+                                                <img src="../../assets/img/NationalGeographic_2572187_2x1.avif" alt="">
+                                            </div>
+                                            
+                                            <div class="pdf">
+                                                <div class="pdf-l">
+                                                    <i class="fas fa-file-pdf" style="color: red; font-size: 30px;"></i>
+                                                    <a style="text-decoration: underline;">sample.pdf</a>
+                                                </div>
+                                                <button (click)="generateAndDownloadPDF()">
+                                                    <p>ดาวน์โหลด</p>
+                                                </button>
+                                            </div>
+                                            <div class="excel">
+                                                <div class="excel-1">
+                                                    <i class="fas fa-file-excel"
+                                                        style="color: green; font-size: 30px;"></i>
+                                                    <a style="text-decoration: underline;">Excel.xlsx</a>
+                                                </div>
+                                                <button (click)="downloadExcel()">
+                                                    <p>ดาวน์โหลด</p>
+                                                </button>
+                                            </div>
+                                            <div class="word">
+                                                <div class="word-1">
+                                                    <i class="fas fa-file-word"
+                                                        style="color: blue; font-size: 30px;"></i>
+                                                    <a style="text-decoration: underline;">word.doc</a>
+                                                </div>
+                                                <button (click)="downloadWord()">
+                                                    <p>ดาวน์โหลด</p>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </ng-container>
+                            </div>
+                          \
                         </div>
+
                     </div>
                 </div>
 
