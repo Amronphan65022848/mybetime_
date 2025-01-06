@@ -1,0 +1,312 @@
+.container {
+    background-color: transparent;
+    min-height: 100vh;
+    background-image: url("../../assets/img/main-page.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* display: flex; 
+    flex-direction: column; */
+
+}
+
+.content {
+    /* border: solid 1px white; */
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    align-items: center;
+    justify-content: center;
+
+    height: 82vh;
+    padding: 0 100px;
+    justify-content: space-between;
+}
+
+.top {
+    /* border: solid 1px white; */
+    width: 100%;
+    /* padding: 10px; */
+    display: flex;
+    padding: 0;
+    /* เอา padding ออก เพื่อให้ไม่มีช่องว่าง */
+    margin-top: 0;
+    /* เผื่อมี margin */
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.Newtask {
+    width: 100%;
+    /* background-color: blue; */
+    display: flex;
+    border: solid 1px white;
+    border-radius: 30px;
+    padding: 5px 10px;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0;
+    /* ไม่มีระยะห่างจากด้านบน */
+}
+
+
+.left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.left img {
+    margin-bottom: 4px;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@font-face {
+    font-family: myfont;
+    src: url(../../font/Prompt-SemiBold.ttf);
+}
+
+h4 {
+    font-size: 20px;
+    font-family: myfont;
+    font-weight: bold;
+}
+
+
+
+
+.chat-container {
+    max-height: 400px;
+    /* กำหนดความสูงของส่วนแชท */
+    overflow-y: auto;
+    /* เพิ่ม scrollbar แนวตั้งเมื่อเนื้อหาเกิน */
+    padding: 10px;
+    /* เพิ่มระยะขอบด้านใน */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    /* เงาภายในเพื่อความสวยงาม */
+    /* background-color: #a02828;  */
+    border-radius: 10px;
+    /* มุมโค้ง */
+}
+
+/* ปรับแต่ง scrollbar (สำหรับเบราว์เซอร์ที่รองรับ) */
+.chat-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+    background: #888;
+    /* สีของ scrollbar */
+    border-radius: 4px;
+}
+
+.chat-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* สีเมื่อ hover */
+}
+
+
+.bottom {
+
+    display: flex;
+    border: solid 1px white;
+    border-radius: 30px;
+    padding: 5px 10px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    /* background-color: #D1D0D0; */
+    /* opacity: 0.1; */
+    /* box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); */
+    /* Glowing effect with white color */
+}
+
+.box-left {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    gap: 20px;
+}
+
+span {
+    font-family: myfont;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.box-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+
+.message-input {
+    border: none;
+    /* Remove border */
+    outline: none;
+    /* Remove outline */
+    background: transparent;
+    /* Optional: remove background */
+    padding: 5px;
+    /* Optional: add padding for spacing */
+    flex: 1;
+    /* Allow the input to take full width */
+    font-size: 14px;
+    /* Adjust font size */
+    font-weight: 400;
+    /* Adjust font weight */
+    line-height: 1.5;
+    /* Adjust line height for better readability */
+    color: white;
+    /* Ensure text is readable against blue background */
+
+}
+
+.message-input::placeholder {
+    color: white;
+    /* Placeholder color */
+}
+
+.chat-message-sender {
+    display: flex;
+    align-items: flex-end;
+    /* Align text to the left */
+    justify-content: flex-end;
+    /* Vertically align elements to the bottom */
+    padding: 10px;
+    gap: 10px;
+}
+
+.cht-mes {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px 20px 0px 20px;
+    width: 920px;
+    height: 150px;
+    background-color: #fcfcfc;
+
+}
+
+.top-cht {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px 20px 0px 0px;
+    padding: 8px 15px;
+    background-color: #F47A20;
+}
+
+.text2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.icn-cht {
+    display: flex;
+    justify-content: flex-end;
+    /* Align image to the right */
+    align-items: flex-end;
+
+}
+
+.mess {
+    padding: 8px 15px;
+    color: black;
+}
+
+
+
+.chat-message-receiver {
+    display: flex;
+    align-items: flex-end;
+    /* Align text to the left */
+    justify-content: flex-start;
+    /* Vertically align elements to the bottom */
+    padding: 10px;
+    gap: 10px;
+}
+
+.icn-cht1 {
+    display: flex;
+    justify-content: flex-end;
+    /* Align image to the right */
+    align-items: flex-end;
+    /* Vertically align image to the bottom */
+
+}
+
+
+.top-cht1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px 20px 0px 0px;
+    padding: 8px 15px;
+    background-color: #29366D;
+}
+
+.cht-mes1 {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px 20px 20px 0px;
+    width: 920px;
+    height: 150px;
+    background-color: #fcfcfc;
+
+}
+@font-face {
+    font-family: myfont;
+    src: url(../../font/Prompt-SemiBold.ttf);
+}
+
+textarea{
+    background: transparent;
+    font-family: myfont;
+    width: 100%;
+    resize: none; /* ปิดการขยายขนาด */
+    border: none;
+    color: white;
+    height: 60px;
+    /* text-align: center; */
+    justify-content: center;
+    display: flex;
+    align-items: center;
+
+    font-size: 16px; /* ขนาดข้อความ */
+    line-height: 60px; /* ทำให้ข้อความอยู่ตรงกลางแนวตั้ง */
+    text-align: left; /* ชิดซ้าย */
+    vertical-align: middle; /* ช่วยในการจัดตำแหน่ง */
+    box-sizing: border-box; /* ให้ padding รวมอยู่ในขนาดที่กำหนด */
+}
+textarea, input {
+    outline: none; /* ปิดกรอบเมื่อ focus */
+  }
+
+textarea::placeholder{
+    font-family: myfont;
+color: rgb(255, 255, 255);
+}
+
+img.preview {
+    max-width: 100%; /* จำกัดความกว้างไม่ให้เกิน 100% ของ container */
+    max-height: 100px; /* จำกัดความสูงให้ไม่เกิน 300px */
+    object-fit: contain; /* ปรับภาพให้พอดีกับกรอบ */
+}
+  

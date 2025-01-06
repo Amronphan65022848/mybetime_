@@ -1,0 +1,156 @@
+.container {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    /* background-color: rgb(0, 0, 0); */
+    row-gap: 10px;
+    padding: 20px 70px;
+    /* height: 100px; */
+    /* z-index: 1; */
+
+    /* border: solid 2px white; */
+}
+
+nav{
+    background-color: transparent;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding:0; */
+    overflow: hidden;
+    /* border: 2px solid black; */
+    /* position: absolute; */
+    /* background-color: rgb(0, 0, 0); */
+
+    
+}
+
+.logo img {
+    /* max-height: 40px; */
+}
+
+.navbar-items {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-btn {
+    background-color: rgba(87, 83, 83, 0.7);
+    color: white;
+    border: none;
+    /* padding: 12px 10px; */
+    padding: 0;
+    /* margin-right: 15px; */
+    margin-right: 0;
+    cursor: pointer;
+    border-radius: 30px;
+    border: solid 1px gray;
+    width: 106px;
+    height: 48px;
+}
+
+
+
+
+
+
+.switch {
+    position: relative;
+    width: 93px;
+    height: 48px;
+    border-radius: 24px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+  
+  .toggle {
+    background-color: #FF520E;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    margin-top: 4px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;  /* ใช้ transform แทน margin-left */
+    left: 50px;  /* เริ่มต้นอยู่ที่ขวา */
+  }
+  
+  .toggle.left {
+    transform: translateX(-45px); /* เลื่อนไปทางซ้าย */
+  }
+  
+  .th, .en {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .th {
+    margin-top: 12px;
+    margin-left: 15px;
+  }
+  
+  .en {
+    margin-top: 4px;
+    margin-left: 50px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+  
+  .line {
+    height: 1px;
+    background: linear-gradient(to right, #0c0c0c 0, #FF520E 50%, #0c0c0c 100%);
+  }
+  
+
+
+
+
+
+
+
+
+  @media (width: 1024px){
+.container{
+    padding: 20px 50px;
+}
+  }
+
+
+@media (width: 2560px) and  (height: 1440px)  {
+    .container {
+        width: 100%;
+        padding: 60px 125px 0px;
+      
+    }
+    .logo img {
+        height: 80px;
+        
+    }
+    .contact-btn{
+        width: 200px;
+        height: 80px;
+        font-size: 30px;
+    }
+    .switch {
+        width: 180px;
+        height: 80px;
+    }
+    .th{
+        font-size: 30px;
+    }
+    .en{
+        font-size: 30px;
+        height: 70px;
+        width: 70px;
+        margin-top: 4px;
+    margin-left: 100px;
+    }
+}

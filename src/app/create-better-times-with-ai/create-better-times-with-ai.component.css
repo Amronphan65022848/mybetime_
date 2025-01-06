@@ -1,0 +1,167 @@
+/* ปรับค่าพื้นฐาน */
+
+@font-face {
+    font-family: myfont;
+    src: url(../../font/Prompt-Regular.ttf);
+}
+h1{
+    font-family: myfont;
+    font-weight: 300;
+    /* font-size: 4rem; */
+    font-size: 64px;
+}
+p{
+    font-family: myfont;
+
+   
+}
+
+
+.container {
+    /* padding-top: 100px; */
+    background-color: transparent;
+    min-height: 100vh;
+    background-image: url("../../assets/img/Intro-1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.content {
+    max-width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.top p{
+ font-size: 24px;
+}
+.top {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.center {
+    font-family: myfont;
+    display: flex;
+    width: 100%;
+    width: 790px;
+    text-align: center;
+    font-size: 1rem;
+    color: #D9D9D9;
+    /* background-color: rgb(30, 255, 0); */
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+}
+
+button {
+    font-family: myfont;
+    width: 215px;
+    height: 76px;
+    background-color: #F47A1F;
+    border-radius: 50px;
+    border: solid 1px white;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 24px;
+    
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: #ffffff;
+    padding: 20px;
+    font-size: 0.9rem;
+}
+
+.leanmore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.leanmore p {
+    margin: 0;
+}
+
+/* Media Queries สำหรับหน้าจอขนาดต่าง ๆ */
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .center {
+        font-size: 0.9rem;
+    }
+
+    button {
+        width: 140px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .center {
+        font-size: 0.8rem;
+        width: 100%;
+    }
+
+    button {
+        width: 120px;
+        height: 38px;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .center {
+        font-size: 0.75rem;
+    }
+
+    button {
+        width: 100px;
+        height: 35px;
+    }
+
+    footer {
+        font-size: 0.8rem;
+    }
+}

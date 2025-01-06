@@ -1,0 +1,97 @@
+<div class="container">
+    <app-navbar></app-navbar>
+
+    <div class="content">
+
+        <div class="Newtask">
+            <div class="left">
+                <img src="../../assets/img/stars.png" alt="">
+                
+            </div>
+
+
+        </div>
+
+        <div class="hero">
+
+            <div class="section1">
+
+            
+
+                <!--  -->
+
+                <div class="top-step">
+                    <h4 style="color: white;">Step 2 : Sent a Message</h4>
+                    <h4 style="color: #A9A9A9;"> Edit</h4>
+
+                </div>
+                <div class="box">
+                    <div class="text">
+                        <!-- <p>Sent a Message... </p> -->
+                        <!-- <input type="text" placeholder="Sent a Message..." class="message-input" /> -->
+
+                        <textarea id="chatInput" rows="4" cols="50" placeholder="Sent a Message..."></textarea>
+
+                    </div>
+
+                    <div class="end-btn">
+                        <img src="../../assets/img/hugeicons_sent2.png" alt="" id="speechToTextBtn"
+                            (click)="convertSpeechToText()">
+
+
+                        <button (click)="submitMessage()">Submit</button>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="section2">
+
+                <div class="top-step">
+                    <h4 style="color: white;"> Output</h4>
+                    <h4 style="color: #A9A9A9;"> Regenerate</h4>
+
+                </div>
+                <div class="inbox">
+                    <img *ngIf="isLogoVisible" src="../../assets/img/logo.png" alt="" style="opacity: 0.5;">
+                    <div class="chat" *ngIf="isChatVisible">
+                        <div *ngFor="let chat of chatMessages" class="chat-box"
+                            [ngClass]="{'chat-box-ai': chat.user === 'Ai'}">
+                            <!-- สำหรับข้อความของผู้ใช้ -->
+                            <ng-container *ngIf="chat.user === 'You'">
+                                <div class="user-me">
+                                    <div class="top-me">
+                                        <h4>{{ chat.user }}</h4>
+                                    </div>
+                                    <div class="box-message">
+                                        <p>{{ chat.message }}</p>
+                                    </div>
+                                </div>
+                                <img src="../../assets/img/user1.png" alt="" height="30px">
+                            </ng-container>
+
+                            <!-- สำหรับข้อความของ AI -->
+                            <ng-container *ngIf="chat.user === 'Ai'">
+                                <img src="../../assets/img/ri_voice-ai-line.png" alt="" height="30px">
+                                <div class="user-ai">
+                                    <div class="top-ai">
+                                        <h4>{{ chat.user }}</h4>
+                                    </div>
+                                    <div class="box-message-ai">
+
+                                        <p>{{ chat.message }}</p>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

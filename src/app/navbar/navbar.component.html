@@ -1,0 +1,28 @@
+<!-- <p>navbar works!</p> -->
+
+<div class="container">
+
+    <nav>
+        <div class="logo">
+        <a routerLink="/landing"><img src="../../assets/img/logo.png"></a>    
+        </div>
+        <div class="navbar-items">
+            <button class="contact-btn">Contact Us</button>
+
+            <div class="switch" (click)="togglePosition()">
+                <div class="toggle" [ngClass]="{'left': isLeft}"></div>
+                <label class="th">TH</label>
+                <label class="en">EN</label>
+              </div>
+              
+
+        </div>
+
+
+
+    </nav>
+    <div class="line">
+
+    </div>
+
+</div>

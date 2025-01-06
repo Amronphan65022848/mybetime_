@@ -1,0 +1,179 @@
+<div class="container">
+    <app-navbar></app-navbar>
+
+    <div class="content">
+
+        <div class="Newtask">
+            <div class="left">
+                <img src="../../assets/img/stars.png" alt="">
+
+            </div>
+
+
+        </div>
+
+        <div class="hero">
+
+            <div class="section1">
+                <div class="left-s1">
+                    <div class="top-step">
+                        <h4 style="color: white;">Step 1 : Upload Image or Video</h4>
+                        <h4 style="color: #A9A9A9;"> Edit</h4>
+
+                    </div>
+
+
+                    <!-- อัพโหลดไฟล์ต่างๆ -->
+
+                    <div class="box">
+                        <!-- พื้นที่สำหรับแสดงรายการไฟล์ที่เลือก -->
+                        <div class="upload" (dragover)="onDragOver($event)" (drop)="onDrop($event)"
+                            (click)="triggerFileUpload()">
+                            <!-- แสดงข้อความและไอคอนเริ่มต้น -->
+                            <img *ngIf="selectedFiles.length === 0" src="../../assets/img/uploand-icon.png"
+                                alt="Upload Icon">
+                            <p *ngIf="selectedFiles.length === 0"> click to upload</p>
+
+                            <!-- แสดงรายการไฟล์ที่เลือก -->
+                            <div *ngIf="selectedFiles.length > 0" class="file-list">
+                                <p>Files Selected:</p>
+                                <ul>
+                                    <li *ngFor="let file of selectedFiles; let i = index">
+                                        <div class="lf-spin">
+                                            <div *ngIf="file.isUploading" class="spinner"></div> <!-- เพิ่ม -->
+                                            {{ file.name }} ({{ file.size | number }} bytes)
+                                        </div>
+                                        <!-- ปุ่มกากบาท -->
+                                        <button type="button" class="remove-btn"
+                                            (click)="removeFile($event, i)">×</button>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- ปุ่มสำหรับเลือกไฟล์ -->
+                        <button type="button" (click)="triggerFileUpload()">Upload File</button>
+                    </div>
+
+
+                    <!--  -->
+                </div>
+
+                <div class="left-s2">
+                    <div class="top-step">
+                        <h4 style="color: white;">Step 2 : Sent a Message</h4>
+                        <h4 style="color: #A9A9A9;"> Edit</h4>
+
+                    </div>
+                    <div class="box">
+                        <div class="text">
+                            <!-- <p>Sent a Message... </p> -->
+                            <!-- <input type="text" placeholder="Sent a Message..." class="message-input" /> -->
+
+                            <textarea id="chatInput" rows="4" cols="50" placeholder="Sent a Message..."></textarea>
+
+                        </div>
+
+                        <div class="end-btn">
+                            <img src="../../assets/img/hugeicons_sent2.png" alt="" id="speechToTextBtn"
+                                (click)="convertSpeechToText()">
+
+
+                            <button (click)="submitMessage()">Submit</button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="section2">
+
+                <div class="top-step">
+                    <h4 style="color: white;"> Output</h4>
+                    <h4 style="color: #A9A9A9;"> Regenerate</h4>
+
+                </div>
+                <div class="inbox">
+                    <img *ngIf="isLogoVisible" src="../../assets/img/logo.png" alt="" style="opacity: 0.5;">
+                    <div class="chat" *ngIf="isChatVisible">
+                        <div *ngFor="let chat of chatMessages">
+                            <!-- สำหรับข้อความของผู้ใช้ -->
+                            <div *ngIf="chat.user === 'You'" class="chat-box">
+                                <div class="user-me">
+                                    <div class="user-dev">
+                                        <div class="top-me">
+                                            <h4>{{ chat.user }}</h4>
+                                        </div>
+                                        <div class="box-message" [ngClass]="getMessageClass(chat.message)">
+                                            <p>{{ chat.message }}</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <img src="../../assets/img/user1.png" alt="" height="30px">
+                            </div>
+
+                            <!-- <div> -->
+                            <!-- สำหรับข้อความของ AI -->
+                            <div *ngIf="chat.user === 'Ai'" class="chat-box-ai">
+                                <img src="../../assets/img/ri_voice-ai-line.png" alt="" height="30px">
+                                <div class="user-ai">
+                                    <div class="top-ai">
+                                        <h4>{{ chat.user }}</h4>
+                                    </div>
+                                    <div class="box-message-ai" [ngClass]="getMessageClassAI(chat.message)">
+                                        <p>{{ chat.message }}</p>
+                                        
+                                        <div class="file-all">
+                                            <div class="img-flie">
+                                                <img src="../../assets/img/NationalGeographic_2572187_2x1.avif" alt="">
+                                            </div>
+                                            
+                                            <div class="pdf">
+                                                <div class="pdf-l">
+                                                    <i class="fas fa-file-pdf" style="color: red; font-size: 30px;"></i>
+                                                    <a style="text-decoration: underline;">sample.pdf</a>
+                                                </div>
+                                                <button (click)="generateAndDownloadPDF()">
+                                                    <p>ดาวน์โหลด</p>
+                                                </button>
+                                            </div>
+                                            <div class="excel">
+                                                <div class="excel-1">
+                                                    <i class="fas fa-file-excel"
+                                                        style="color: green; font-size: 30px;"></i>
+                                                    <a style="text-decoration: underline;">Excel.xlsx</a>
+                                                </div>
+                                                <button (click)="downloadExcel()">
+                                                    <p>ดาวน์โหลด</p>
+                                                </button>
+                                            </div>
+                                            <div class="word">
+                                                <div class="word-1">
+                                                    <i class="fas fa-file-word"
+                                                        style="color: blue; font-size: 30px;"></i>
+                                                    <a style="text-decoration: underline;">word.doc</a>
+                                                </div>
+                                                <button (click)="downloadWord()">
+                                                    <p>ดาวน์โหลด</p>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
